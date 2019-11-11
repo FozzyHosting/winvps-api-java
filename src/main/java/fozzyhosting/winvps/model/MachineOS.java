@@ -25,7 +25,7 @@ import java.io.IOException;
 * Details of the Machine operating system and brand.
 */
 @Schema(description = "Details of the Machine operating system and brand.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2019-11-11T10:29:31.688Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2019-11-11T10:43:40.336Z[Etc/UTC]")
 public class MachineOS {
         @SerializedName("template_id")
         private Integer templateId = null;

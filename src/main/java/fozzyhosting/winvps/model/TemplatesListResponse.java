@@ -27,7 +27,7 @@ import java.io.IOException;
 * TemplatesListResponse
 */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2019-11-11T10:43:40.336Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2019-11-11T18:41:58.477Z[Etc/UTC]")
 public class TemplatesListResponse {
         @SerializedName("data")
         private TemplatesList data = null;

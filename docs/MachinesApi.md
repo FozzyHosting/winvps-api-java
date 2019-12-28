@@ -159,7 +159,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Machine name. |
- **command** | **String**| Command key. | [enum: start, stop, restart, suspend, unsuspend, enable_rdp, enable_network, restart_mt]
+ **command** | **String**| Command key. | [enum: start, stop, restart, suspend, unsuspend, enable_rdp, enable_network, restart_mt, run_updates_install]
 
 ### Return type
 

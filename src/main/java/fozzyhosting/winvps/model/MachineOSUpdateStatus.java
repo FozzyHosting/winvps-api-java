@@ -10,71 +10,151 @@
  * Do not edit the class manually.
  */
 
-package fozzyhosting.winvps;
+package fozzyhosting.winvps.model;
 
-import com.squareup.okhttp.*;
-import okio.Buffer;
-import okio.BufferedSink;
-import okio.GzipSink;
-import okio.Okio;
-
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-
 /**
- * Encodes request bodies using gzip.
- *
- * Taken from https://github.com/square/okhttp/issues/350
- */
-class GzipRequestInterceptor implements Interceptor {
-    @Override public Response intercept(Chain chain) throws IOException {
-        Request originalRequest = chain.request();
-        if (originalRequest.body() == null || originalRequest.header("Content-Encoding") != null) {
-            return chain.proceed(originalRequest);
+* MachineOSUpdateStatus
+*/
+
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2019-12-28T17:32:07.749Z[Etc/UTC]")
+public class MachineOSUpdateStatus {
+        @SerializedName("h_result")
+        private Integer hResult = null;
+
+        @SerializedName("reboot_required")
+        private Boolean rebootRequired = null;
+
+        @SerializedName("result_code")
+        private Integer resultCode = null;
+
+        @SerializedName("update_time")
+        private String updateTime = null;
+
+        public MachineOSUpdateStatus hResult(Integer hResult) {
+        this.hResult = hResult;
+        return this;
         }
 
-        Request compressedRequest = originalRequest.newBuilder()
-                                                   .header("Content-Encoding", "gzip")
-                                                   .method(originalRequest.method(), forceContentLength(gzip(originalRequest.body())))
-                                                   .build();
-        return chain.proceed(compressedRequest);
+    /**
+        * Get hResult
+    * @return hResult
+    **/
+        @Schema(description = "")
+    public Integer getHResult() {
+    return hResult;
     }
 
-    private RequestBody forceContentLength(final RequestBody requestBody) throws IOException {
-        final Buffer buffer = new Buffer();
-        requestBody.writeTo(buffer);
-        return new RequestBody() {
-            @Override
-            public MediaType contentType() {
-                return requestBody.contentType();
-            }
+        public void setHResult(Integer hResult) {
+        this.hResult = hResult;
+        }
 
-            @Override
-            public long contentLength() {
-                return buffer.size();
-            }
+        public MachineOSUpdateStatus rebootRequired(Boolean rebootRequired) {
+        this.rebootRequired = rebootRequired;
+        return this;
+        }
 
-            @Override
-            public void writeTo(BufferedSink sink) throws IOException {
-                sink.write(buffer.snapshot());
-            }
-        };
+    /**
+        * Get rebootRequired
+    * @return rebootRequired
+    **/
+        @Schema(description = "")
+    public Boolean isRebootRequired() {
+    return rebootRequired;
     }
 
-    private RequestBody gzip(final RequestBody body) {
-        return new RequestBody() {
-            @Override public MediaType contentType() {
-                return body.contentType();
-            }
+        public void setRebootRequired(Boolean rebootRequired) {
+        this.rebootRequired = rebootRequired;
+        }
 
-            @Override public long contentLength() {
-                return -1; // We don't know the compressed length in advance!
-            }
+        public MachineOSUpdateStatus resultCode(Integer resultCode) {
+        this.resultCode = resultCode;
+        return this;
+        }
 
-            @Override public void writeTo(BufferedSink sink) throws IOException {
-                BufferedSink gzipSink = Okio.buffer(new GzipSink(sink));
-                body.writeTo(gzipSink);
-                gzipSink.close();
-            }
-        };
+    /**
+        * Get resultCode
+    * @return resultCode
+    **/
+        @Schema(description = "")
+    public Integer getResultCode() {
+    return resultCode;
     }
+
+        public void setResultCode(Integer resultCode) {
+        this.resultCode = resultCode;
+        }
+
+        public MachineOSUpdateStatus updateTime(String updateTime) {
+        this.updateTime = updateTime;
+        return this;
+        }
+
+    /**
+        * Get updateTime
+    * @return updateTime
+    **/
+        @Schema(description = "")
+    public String getUpdateTime() {
+    return updateTime;
+    }
+
+        public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+        }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+    if (this == o) {
+    return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+    return false;
+    }
+        MachineOSUpdateStatus machineOSUpdateStatus = (MachineOSUpdateStatus) o;
+        return Objects.equals(this.hResult, machineOSUpdateStatus.hResult) &&
+        Objects.equals(this.rebootRequired, machineOSUpdateStatus.rebootRequired) &&
+        Objects.equals(this.resultCode, machineOSUpdateStatus.resultCode) &&
+        Objects.equals(this.updateTime, machineOSUpdateStatus.updateTime);
+    }
+
+    @Override
+    public int hashCode() {
+    return Objects.hash(hResult, rebootRequired, resultCode, updateTime);
+    }
+
+
+@Override
+public String toString() {
+StringBuilder sb = new StringBuilder();
+sb.append("class MachineOSUpdateStatus {\n");
+
+sb.append("    hResult: ").append(toIndentedString(hResult)).append("\n");
+sb.append("    rebootRequired: ").append(toIndentedString(rebootRequired)).append("\n");
+sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+sb.append("}");
+return sb.toString();
+}
+
+/**
+* Convert the given object to string with each line indented by 4 spaces
+* (except the first line).
+*/
+private String toIndentedString(java.lang.Object o) {
+if (o == null) {
+return "null";
+}
+return o.toString().replace("\n", "\n    ");
+}
+
 }

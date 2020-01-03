@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **addCpu** | **Integer** | Additional CPU cores count. |  [optional]
 **addBand** | **Integer** | Additional bandwidth. |  [optional]
 **autoStart** | **Integer** |  |  [optional]
+**addIpv6** | **Integer** |  |  [optional]
 
 <a name="DiskTypeEnum"></a>
 ## Enum: DiskTypeEnum

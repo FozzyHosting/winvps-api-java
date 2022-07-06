@@ -1,5 +1,7 @@
 # Fozzy Windows VPS APIs Client library for Java
 
+This library is not supported anymore. If you need a Java SDK for Fozzy Windows VPS service, please register your interest with our support (support@fozzy.com) so we could let you know when we release a new version.
+
 The API Client Library enables you to work with Fozzy Windows VPS APIs for creating or managing your machines.
 
 ## Requirements
